@@ -1,0 +1,95 @@
+/* ===== 米游社风格 全局主题（白天 / 夜间） ===== */
+:root {
+  --ys-blue: #2ba3e8;          /* 米游社主蓝 */
+  --ys-blue-deep: #1470c0;
+  --ys-blue-grad: linear-gradient(135deg, #4fc0f6 0%, #2ba3e8 55%, #1e7fd6 100%);
+  --ys-bg: #eef5fb;
+  --ys-card: #ffffff;
+  --ys-text: #2c3a4d;
+  --ys-text-2: #7a8ba0;
+  --ys-orange: #ff9d42;        /* 米游社福利橙 */
+  --ys-green: #34c28f;
+  --ys-red: #f0655a;
+  --ys-line: #e3edf6;
+  --radius: 16px;
+  --shadow: 0 6px 24px rgba(43, 118, 187, 0.10);
+
+  /* 语义变量（白天默认值） */
+  --soft: #f7fafd;             /* 选项/输入等弱填充 */
+  --soft-2: #eaf3fa;           /* hover/字母块等次级填充 */
+  --track: #e8f1f9;            /* 进度条/评分环底色 */
+  --ok-bg: #e9f9f1; --ok-line: #b7e6d0; --ok-text: #1d7a56;
+  --no-bg: #fff6f5; --no-line: #f8d3cf; --no-text: #b23a31;
+  --hero-grad: linear-gradient(120deg, #ffffff 55%, #e8f5fe 100%);
+  --glow1: rgba(79, 192, 246, 0.18);
+  --glow2: rgba(255, 157, 66, 0.08);
+}
+
+/* 夜间模式 */
+[data-theme='dark'] {
+  --ys-bg: #0e141c;
+  --ys-card: #17202b;
+  --ys-text: #e7eef7;
+  --ys-text-2: #96a8bd;
+  --ys-blue-deep: #6cc4f5;
+  --ys-line: #2a3644;
+  --shadow: 0 6px 24px rgba(0, 0, 0, 0.45);
+
+  --soft: #1f2a37;
+  --soft-2: #263446;
+  --track: #223041;
+  --ok-bg: #14312a; --ok-line: #2c6d52; --ok-text: #7ce3b5;
+  --no-bg: #38201d; --no-line: #7e4038; --no-text: #ffa39a;
+  --hero-grad: linear-gradient(120deg, #17202b 55%, #14263a 100%);
+  --glow1: rgba(79, 192, 246, 0.10);
+  --glow2: rgba(255, 157, 66, 0.05);
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--ys-bg);
+  color: var(--ys-text);
+  font-family: 'MiSans', 'HarmonyOS Sans SC', 'PingFang SC', 'Microsoft YaHei', 'Noto Sans SC', 'Hiragino Sans', 'Yu Gothic UI', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  min-height: 100vh;
+  background:
+    radial-gradient(1200px 500px at 80% -100px, var(--glow1), transparent 60%),
+    radial-gradient(900px 420px at -10% 10%, var(--glow2), transparent 55%),
+    var(--ys-bg);
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+select {
+  font-family: inherit;
+}
+
+::selection { background: rgba(43, 163, 232, 0.25); }
+
+/* 滚动条 */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-thumb { background: var(--track); border-radius: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+
+/* 通用卡片 */
+.card {
+  background: var(--ys-card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+/* 页面过渡 */
+.fade-slide-enter-active,
+.fade-slide-leave-active { transition: opacity 0.25s ease, transform 0.25s ease; }
+.fade-slide-enter-from { opacity: 0; transform: translateY(14px); }
+.fade-slide-leave-to { opacity: 0; transform: translateY(-10px); }
